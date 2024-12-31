@@ -1,0 +1,21 @@
+- name: Installer Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Configurer le vhost
+  copy:
+    src: files/nginx.conf
+    dest: /etc/nginx/sites-available/bulletinboard
+  notify: restart nginx
+
+- name: Activer le vhost
+  file:
+    src: /etc/nginx/sites-available/bulletinboard
+    dest: /etc/nginx/sites-enabled/bulletinboard
+    state: link
+
+- name: Supprimer le vhost par défaut
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
