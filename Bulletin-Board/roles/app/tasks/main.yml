@@ -1,0 +1,24 @@
+- name: Installer Node.js
+  apt:
+    name: nodejs
+    state: present
+
+- name: Installer npm
+  apt:
+    name: npm
+    state: present
+
+- name: Cloner le projet
+  git:
+    repo: https://github.com/rsinghcodes/Bulletin-Board.git
+    dest: /var/www/bulletinboard
+
+- name: Installer les dépendances
+  command: npm install
+  args:
+    chdir: /var/www/bulletinboard
+
+- name: Démarrer l'application
+  command: npm start
+  args:
+    chdir: /var/www/bulletinboard
