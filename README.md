@@ -1,38 +1,59 @@
-## Bulletin Board
+Déploiement CI/CD avec Ansible - Bulletin Board
+Description du projet
 
-### :pencil: Description
+Ce projet vise à déployer une application de type Bulletin Board (tableau d'affichage) à l'aide d'Ansible. L'application est un exemple disponible sur GitHub et est utilisée pour illustrer un workflow CI/CD simple.
+Projet choisi
 
-Bulletin Board is full stack [node.js](https://nodejs.org/) application, built for users to write anything on the board. The notes get saved to localStorage for non-logged in users & for logged in users, notes get saved into database.
+    Nom du projet : Bulletin Board
+    Lien vers le projet : Bulletin Board sur GitHub
 
-An app with dark mode and light mode feature.
+Structure du dépôt
 
-### :city_sunrise: Screenshot
-<img src="https://user-images.githubusercontent.com/67682451/124460610-326cbd80-ddad-11eb-8ce8-1128a14ee443.png" alt="app-preview" width="100%">
+    Playbooks Ansible : Scripts pour déployer l'infrastructure et l'application.
+    Docker-Compose : Fichier pour lancer le projet dans un environnement de conteneurisation.
+    Documentation : Instructions pour exécuter les playbooks et accéder au projet.
 
-### Use it for:
+Organisation des fichiers
 
-- To-do lists
-- Grocery lists
-- Reading lists
-- Brainstorming ideas
-- Upcoming appointments
-- Quote collection
+Bulletin-Board/
+├── playbooks/
+│   ├── main.yml            # Playbook principal
+│   ├── inventory.ini       # Fichier d'inventaire Ansible
+├── roles/
+│   ├── webserver/          # Rôle pour configurer le serveur web
+│   ├── database/           # Rôle pour configurer MongoDB
+│   ├── app/                # Rôle pour déployer l'application Node.js
+├── docker-compose.yml      # Fichier Docker Compose
+├── README.md               # Documentation du projet
 
-And many more, be creative with it!
+Prérequis
 
-### :hammer: 🚧 Technology Stack Used
+    Docker Desktop (pour tester sur Windows ou Linux).
+    Git (pour cloner ce dépôt).
+    Une machine cible sous Ubuntu/Debian pour le déploiement (réel ou simulée dans Docker).
 
-- **Server Enviornment** - Node.js, TypeScript
-- **DevOps** - Docker
-- **For APIs** - GraphQL in conjunction with Apollo Server
-- **Frontend** - React.js, Chakra UI
-- **Database** - MongoDB in conjunction with Mongoose
-- **Cloud database service** - MongoDB Atlas
-- **Deployment** - Render (Backend) & Netlify (Frontend)
+Instructions de déploiement
+1. Cloner le dépôt
 
-### 🗄 Backend Application Link
-[`https://github.com/rsinghcodes/bulletin-board-backend`](https://github.com/rsinghcodes/bulletin-board-backend)
+Ouvrez un terminal et exécutez la commande suivante :
 
-## :satellite: Project Deployment
+git clone <URL_DU_DEPOT_GIT>
+cd Bulletin-Board
 
-Project has been deployed [here!](https://boardbulletin.netlify.app/)
+2. Lancer le déploiement avec Ansible
+
+    Vérifiez que vous êtes dans le dossier playbooks.
+    Exécutez le playbook principal :
+
+    ansible-playbook -i inventory.ini main.yml
+
+Accéder au projet
+
+Une fois le déploiement terminé :
+
+    Serveur web : Accédez à l'application via http://localhost.
+    Base de données : MongoDB est configuré en local sur la machine cible.
+
+Membres du groupe
+
+    Nom/Pseudo : [Ajoutez ici vos noms ou pseudos]
