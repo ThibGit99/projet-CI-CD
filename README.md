@@ -42,7 +42,7 @@ Bulletin-Board/
 ### **1. Cloner le dépôt**
 Ouvrez un terminal et exécutez la commande suivante :
 ```bash
-git clone <[URL_DU_DEPOT_GIT]>
+git clone https://github.com/rsinghcodes/Bulletin-Board
 cd Bulletin-Board
 ```
 
